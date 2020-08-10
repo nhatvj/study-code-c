@@ -1,0 +1,347 @@
+/**
+	  int a;
+	  -> lấy địa chỉ của a.
+	  -> duyet mảng 1 byte a.
+	  -> duyet mảng 2 byte a.
+	  -> lấy giá trị 3 byte cuối và 3 byte đầu.
+
+	  int* pa = a;
+
+	  thao tác các điểm trên dùng con trỏ pa.
+
+	  ... tìm bài tập con trỏ cấp 2, tự giải .
+
+	  ... coi lại ngữ pháp, giải một vài bài tập con trỏ hàm.
+
+	  ... coi ngữ pháp struct.
+
+	  ... bài tập command line.
+
+
+	  */
+#include <stdio.h>
+#include<string.h>
+
+char* parser_poll[20];
+
+int parser (char*c);
+
+int main() {
+	char* name = "xyz nhat vy\n"	;
+
+	parser_poll[0] = &name[0]	;
+	char *p = name;
+
+	//printf("%s",p)	;
+	//char *ptr;
+
+	//ptr = strtok(p," ");
+
+	//while (ptr != NULL) {
+	//	printf("%s", ptr);
+	//	ptr =  strtok(NULL," ");
+	//}
+
+	//printf("%s",p);
+	int len = strlen(name);
+
+	printf("%d\n",len);
+	//printf("%s",&name[4]);
+		for (int i = 0; i < len  ; i++) {
+			if (p[i] == ' ') {
+				printf("%s\n",&p[len -i]);
+				printf("%d",i);
+				 break;
+		}
+	}
+}
+int parser (char*c) {
+ //char *p = c;
+
+}
+
+
+
+/*int main ()
+{
+  char str[] ="xyz nhat vy";
+  char * pch;
+  char *p = str;
+  printf("%s",p);
+  printf ("chuoi \"%s\"sau khi xoa dau cach:\n",str);
+  pch = strtok (p," ");
+  while (pch != NULL)
+  {
+	printf ("%s",pch);
+	pch = strtok (NULL, " ");
+  }
+  return 0;
+}*/
+
+
+/*int main(){
+ int a ;
+ int b ;
+ printf("%d", &a);
+ printf("%d",&b);
+ return 0 ;*/
+
+
+/*int main(){
+	int a[6]={1,2,3,4,5,6};
+	//printf("%d %d",&a[2],a[3]);
+	printf("%d\n",a) ;
+	printf("%d\n",&a);
+
+	for (int i=0;i<3;i++)
+	{
+		printf("%d\n",&a[i]);
+	}
+	for(int i =3 ; i>0;i--)
+		printf("%d\n",a[i]);
+}
+*/
+
+/*int main(){
+	int *pa ;
+	int a = 5 ;
+	pa = &a;
+	printf("%d",pa);
+
+}*/
+
+/*int main(){
+	int a[6]={1,3,5,7,9,0};
+	int* p ;
+	p = &a[1];
+	printf("%d",*p);
+}*/
+
+/*int main(){
+	int a[]={2,3,4,5};
+	int* ptr;
+	int* ptr1;
+	ptr= &a[3];
+	ptr1 = &a[2];
+//	for(int i = 0; i < size ; i++){
+//		ptr[i]=&a[i];
+//		printf("%p\n",&ptr[i]);
+//	}
+	printf("%d",*ptr + *ptr1);
+}*/
+
+/*void ptr(int* x){
+	(*x)++;
+}
+void ptr1(char* y){
+	(*y) ++ ;
+}
+
+int main(){
+	int num = 5;
+	char a;
+	ptr(&num);
+	a =*(char*)&num ;
+	ptr1(&a);
+	printf("%d\n",num);
+	printf("%d\n",a);
+}*/
+
+/*typedef struct
+{
+	int a,c;
+	char b;
+}name_t;
+
+int main(){
+	name_t p1 , p2;
+	scanf("%d",&p1.a );
+	scanf("%d",&p2.c);
+	printf("tong 2 so la : %d ", p1.a+p2.c );
+
+return 0;
+}*/
+
+/*typedef struct
+{
+	int a,c,d;
+	char b;
+}poin;
+int main(){
+	poin p1={1,3,4};
+	scanf("%d",&p1.b);
+	poin* p2 = &p1;
+	printf("%d %d",p2->a,p2->b);
+}*/
+
+/*typedef struct
+{
+	int a , b;
+}PS;
+
+PS cong(PS tu ,PS mau ){
+	PS c;
+	c.a=tu.a + mau.b ;
+	return c;
+}
+
+PS tru(PS tu ,PS mau)
+{
+ PS d;
+ d.a = tu.a - mau.b;
+ return d;
+
+}
+
+int main(){
+	PS x,y,c,d;
+	printf("nhap so a :");
+	scanf("%d",&x.a);
+	printf("nhap so b : ");
+	scanf("%d",&y.b);
+	c = cong( x , y);
+	printf("%d\n",c);
+	d = tru(x,y);
+	printf("%d",d);
+}*/
+
+/*typedef struct
+{
+	int a, b;
+	char c ;
+
+}PS;
+
+PS tong(PS *tu , PS *mau){
+	PS d;
+	d.b =tu->a + mau->b ;
+return d ;
+}
+
+int main(){
+PS x ,y,n;
+printf("nhap so x : ");
+scanf("%d",&x.a);
+
+printf("nhap so y : ");
+scanf("%d",&y.b);
+ n=tong(&x,&y);
+printf("%d",n);
+
+}*/
+
+/*typedef struct
+{
+	int a;
+}PC;
+
+int congthuc(PC x,PC y ){
+
+	PC cong ,tru, nhan ,chia ;
+	cong.a = x.a - y.a ;
+	return cong.a;
+}
+
+int congthuc2( int a , int b){
+	 return a+b;
+
+}
+
+int (*funtion)(int,int);
+int main(){
+	funtion = &congthuc2 ;
+	PC gt, s1 , s2, c ;
+	printf("nhap s1 : ");
+	scanf("%d",&s1);
+	printf("nhap s2 : ");
+	scanf("%d",&s2);
+	printf("nhap ma cong thuc ");
+	scanf("%d",&gt);
+	//c.a =congthuc(s1,s2);
+
+	int d = funtion(s1.a,s2.a);
+
+	switch (gt.a) {
+	case 1:
+		printf(" gia tri la 1 %d " ,d);
+		break;
+	default:
+		break;
+	}
+
+}*/
+
+
+/*typedef struct
+{
+	int a;
+	char b;
+	short int c ;
+
+}PC;
+
+int tong( int x  , int y){
+	return x + y;
+}
+
+int hieu ( int x, int y){
+	return x-y ;
+}
+
+int nhan(int x , int y ){
+	return x*y ;
+}
+
+int chia(int x, int y){
+	return x/y;
+}
+
+typedef int (*funtion)(int x,int y);
+
+ int tinhtoan(int x, int y , funtion tinh){
+	return tinh(x,y);
+}
+
+int main()
+{  int a, b ;
+	printf("nhap so a : ");
+	scanf("%d",&a);
+	printf("nhap so b : ");
+	scanf("%d",&b);
+
+	int ketqua = tinhtoan(a, b , nhan);
+	int ketqua2 = tinhtoan(a,b,tong) ;
+	int ketqua3 = tinhtoan(a,b,hieu) ;
+	printf("ket qua a*b = %d : ", ketqua );
+	printf("\nket qua a+b = %d " ,ketqua2);
+	printf("\nket qua a - b = %d ",ketqua3);
+
+}*/
+
+/*int SIZE = 2 ;
+
+int main(){
+
+	int arr[] = {1,2,3,4,5};
+	char mang[] = "abc xyz " ;
+	char *p ;
+	p = mang;
+	printf("%s",&p[2]);
+
+	int i, *ptr[SIZE];
+
+	for (i = 0; i < SIZE; i++) {
+
+		ptr[i] = &arr[i];
+		printf("\nValue2 of arr[%d] = %d\n", i, *ptr[i]);
+	   }
+
+	   for (i = 0; i < SIZE; i++) {
+
+		   printf("Value of arr[%d] = %d\n", i, *ptr[i]);
+	   }
+
+}*/
+
+
+
